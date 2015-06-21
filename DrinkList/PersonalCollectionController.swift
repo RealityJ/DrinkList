@@ -10,7 +10,7 @@ import UIKit
 
 let reuseIdentifier = "Cell"
 
-var array = ["Ale","test1","test2","test3"]
+var array = ["Ales","Lagers","Stouts","Malts"]
 var arrayDescription = ["first","second","third","fourth"]
 
 class PersonalCollectionController: UICollectionViewController {
@@ -56,7 +56,13 @@ class PersonalCollectionController: UICollectionViewController {
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> RDCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! RDCell
         
-        cell.backgroundColor=UIColor.whiteColor()
+        switch(indexPath.row){
+        case 0:
+            cell.backgroundColor = UIColor(patternImage: UIImage(named: "ales")!)
+        default:
+            cell.backgroundColor=UIColor.whiteColor()
+        }
+
         cell.TitleLabel.text = array[indexPath.row]
         cell.TitleLabel.textColor = UIColor.blackColor()
         cell.DescriptionLabel.text = arrayDescription[indexPath.row]

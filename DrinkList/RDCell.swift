@@ -9,17 +9,16 @@
 import UIKit
 
 class RDCell: UICollectionViewCell {
-//    @IBOutlet weak var TitleLabel: UILabel!
-//    @IBOutlet weak var DescriptionLabel: UILabel!
+    
     var TitleLabel = UILabel();
     var DescriptionLabel = UILabel();
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        let textFrame = CGRect(x: 0, y: 50, width: frame.size.width, height: frame.size.height)
+        let textFrame = CGRect(x: frame.size.width*(0.1), y: 0, width: frame.size.width, height: frame.size.height)
         TitleLabel = UILabel(frame: textFrame)
-        TitleLabel.font = UIFont.systemFontOfSize(UIFont.smallSystemFontSize())
+        TitleLabel.font = UIFont(name: TitleLabel.font.fontName, size: 20)
         TitleLabel.textColor = UIColor.blackColor()
         contentView.addSubview(TitleLabel)
         
@@ -31,7 +30,7 @@ class RDCell: UICollectionViewCell {
         
         self.layer.cornerRadius = 5
 }
-    
+
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
